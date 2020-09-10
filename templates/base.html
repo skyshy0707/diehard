@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html>
+
+<head>
+	<meta name="yandex-verification" content="78e3999d88956e95" />
+	
+	<meta charset="utf-8">
+	<meta name ="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+	<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+	
+
+	<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">-->
+
+	<title>ТЕСТИРОВАНИЕ ГЕНЕРАТОРОВ СЛУЧАЙНЫХ ЧИСЕЛ</title>
+
+</head>
+
+<body>
+
+	<main>
+	
+		<button class="button21" onclick="window.location.href = '{% url 'inputData:home' %}';">НА ГЛАВНУЮ</button>
+		<button class="button22" onclick="window.location.href = '{% url 'results:results' %}';">ЛИСТ РЕЗУЛЬТАТОВ</button>
+
+		{% block content %}
+		
+		
+		{% endblock %}
+
+	</main>
+
+
+</body>
+</html>

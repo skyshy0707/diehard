@@ -1,0 +1,177 @@
+{% extends 'base.html' %}
+
+
+<table>
+
+	<caption>Результаты тестирования</caption>
+	
+	<tr>
+		<th>BIRTHDAY SPACINGS TEST</th>
+		<th>BINARY RANK TEST for 31x31 matrices</th>
+		<th>BINARY RANK TEST for 32x32 matrices</th>
+		<th>BINARY RANK TEST for 6x8 matrices</th>
+		<th>PARKING LOT TEST</th>
+		<th>THE MINIMUM DISTANCE TEST</th>
+		<th>THE 3DSPHERES TEST</th>
+		<th>SQEEZE TEST</th>
+		<th>OVERLAPPING SUMS TEST</th>
+	</tr>
+
+	<tr>
+		<td>{{ res.pvalues.BIRTHDAY_SPACINGS_TEST }}</td>
+		<td>{{ res.pvalues.BINARY_RANK_TEST_for_31x31_matrices }}</td>
+		<td>{{ res.pvalues.BINARY_RANK_TEST_for_32x32_matrices }}</td>
+		<td>{{ res.pvalues.BINARY_RANK_TEST_for_6x8_matrices }}</td>
+		<td>{{ res.pvalues.PARKING_LOT_TEST }}</td>
+		<td>{{ res.pvalues.THE_MINIMUM_DISTANCE_TEST }}</td>
+		<td>{{ res.pvalues.THE_3DSPHERESS_TEST }}</td>
+		<td>{{ res.pvalues.SQEEZE_TEST }}</td>
+		<td>{{ res.pvalues.OVERLAPPING_SUMS_TEST }}</td>
+	</tr>
+</table>
+
+
+<table>
+	<caption>Результаты тестирования</caption>
+	
+	<tr>
+		<th>Порядковый номер теста</th>
+		<th>THE OVERLAPPING 5-PERMUTATION TEST</th>
+		<th>COUNT-THE-1's TEST on a stream of bytes</th>
+	</tr>
+	
+	<tr>
+	
+		<td>1</td><td>{{ res.pvalues.THE_OVERLAPPING_5_PERMUTATION_TEST|lookup:0 }}</td><td>{{ res.pvalues.COUNT_THE_1s_TEST_on_a_stream_of_bytes|lookup:0 }}</td>
+	
+	</tr>
+	
+	<tr>
+	
+		<td>2</td><td>{{ res.pvalues.THE_OVERLAPPING_5_PERMUTATION_TEST|lookup:1 }}</td><td>{{ res.pvalues.COUNT_THE_1s_TEST_on_a_stream_of_bytes|lookup:1 }}</td>
+	
+	</tr>
+</table>
+
+"THE_BITSTREAM_TEST", "OPSO", "OQSO", "DNA", 
+"COUNT_THE_1s_TEST_for_specific_bytes", 
+	  "RUNS_TEST"
+
+
+<table>
+	<caption>Результаты тестирования тестом THE BITSTREAM TEST</caption>
+	
+	<tr>
+		<th>Порядковый номер теста</th>
+		<th>p-значение</th>
+	</tr>
+	
+	{& for p in res.pvalues.THE_BITSTREAM_TEST &}
+	
+	<ul>
+		<td><li>\u0020</li></td><td>{{ p }}</td>
+	</ul>
+	{% endfor %}
+</table>
+
+
+<script>
+	function rows(list) {
+	var i = 1;
+	for (var i=1; i <= list.length; i++)
+	{
+	document.write("<td>\u0020" + i + "--" + (list.length+i-1) + "</td><td>" + list[i] + "</td>")
+	}
+	}
+</script>
+
+<table>
+
+<caption>Результаты тестирования тестом OPSO</caption>
+	
+	<tr>
+		<th>Порядковый номер теста</th>
+		<th>p-значение</th>
+	</tr>
+	
+	<! --{& for p in res.pvalues.OPSO &}-->
+	
+	<script>
+	var list = "{{ res.pvalues.OPSO }}";
+	rows(list);
+	</script>
+</table>
+
+
+<table>
+
+<caption>Результаты тестирования тестом OQSO</caption>
+	
+	<tr>
+		<th>Порядковый номер теста</th>
+		<th>p-значение</th>
+	</tr>
+	
+	<! --{& for p in res.pvalues.OQSO &}-->
+	
+	<script>
+	var list = "{{ res.pvalues.OQSO }}";
+	rows(list);
+	</script>
+
+</table>
+
+
+<table>
+
+<caption>Результаты тестирования тестом DNA</caption>
+	
+	<tr>
+		<th>Порядковый номер теста</th>
+		<th>p-значение</th>
+	</tr>
+	
+	<! --{& for p in res.pvalues.DNA &}-->
+	
+	<script>
+	var list = "{{ res.pvalues.DNA }}";
+	rows(list);
+	</script>
+
+</table>
+
+<table>
+
+<caption>Результаты тестирования тестом COUNT THE 1's TEST for specific bytes</caption>
+	
+	<tr>
+		<th>Порядковый номер теста</th>
+		<th>p-значение</th>
+	</tr>
+	
+	<! --{& for p in res.pvalues.COUNT_THE_1s_TEST_for_specific_bytes &}-->
+	
+	<script>
+	var list = "{{ res.pvalues.COUNT_THE_1s_TEST_for_specific_bytes }}";
+	rows(list);
+	</script>
+
+</table>
+
+<table>
+
+<caption>Результаты тестирования тестом RUNS test</caption>
+
+	<tr>
+		<th>Порядковый номер теста</th>
+		<th>runs up</th>
+		<th>runs down</th>
+	</tr>
+	
+	<tr>
+		<td>1</td><td>{{ res.pvalues.RUNS_TEST|lookup:0 }}</td><td>{{ res.pvalues.RUNS_TEST|lookup:1 }}</td>
+		<td>2</td><td>{{ res.pvalues.RUNS_TEST|lookup:2 }}</td><td>{{ res.pvalues.RUNS_TEST|lookup:3 }}</td>
+	
+	</tr>
+
+</table>

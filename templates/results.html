@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="bord1">На этой странице, ниже по имени вашего генератора вы можете найти ссылку на результаты тестирования:</h2>
+<ul class="links">
+{% for inp in results %}
+	<li><a href="{% url 'results:result' inp.id %}" class="genlink">{{ inp.title }}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}
+	

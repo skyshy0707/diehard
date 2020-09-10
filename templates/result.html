@@ -1,0 +1,212 @@
+{% extends 'base.html' %}
+{% load lookup %}
+
+{% block content %}
+
+<h2>Результаты тестирования тестами Diehard генератора {{ res.generator.title }}</h2>
+
+<script>
+	function valColorRight(v){
+	if (v > 0.95) return "<td style=background-color:red>" + v + "</td>";
+	else return "<td>" + v + "</td>";
+	};
+	
+	function valColorLeft(v){
+	if (v < 0.05) return "<td style=background-color:red>" + v + "</td>";
+	else return "<td>" + v + "</td>";
+	};
+	
+	function rows(list, G, b) {
+	var l = list.length;
+	for (var i=0; i < list.length; i++)
+	{
+	if (b === true){document.write("<tr><td>" + (i+1) + "-" + (G+i) + "</td>" + valColorRight(list[i]) + "</tr>");}
+	else {document.write("<tr><td>" + (i+1) + "-" + (G+i) + "</td>" + valColorLeft(list[i]) + "</tr>");}}
+	}
+</script>
+
+ 
+
+<table align="center" border="1.5">
+<caption valign="top">Результаты тестирования</caption>
+	
+	<tr>
+		<th>BIRTHDAY SPACINGS TEST</th>
+		<th>BINARY RANK TEST for 31x31 matrices</th>
+		<th>BINARY RANK TEST for 32x32 matrices</th>
+		<th>BINARY RANK TEST for 6x8 matrices</th>
+		<th>PARKING LOT TEST</th>
+		<th>THE MINIMUM DISTANCE TEST</th>
+		<th>THE 3DSPHERES TEST</th>
+		<th>SQEEZE TEST</th>
+		<th>OVERLAPPING SUMS TEST</th>
+	</tr>
+
+	<tr>
+	{% with names=res.pvalues|filterNames %}
+	{% for p in names.values %}
+		{% if p|toFloat < 0.05 %}
+			<td style=background-color:red>{{ p }}</td>
+		{% elif p|toFloat >= 0.05 %}
+			<td>{{ p }}</td>
+		{% endif %}
+	{% endfor %}
+	{% endwith %}
+	</tr>
+</table>
+
+
+<table align="center" border="1.5">
+<caption>Результаты тестирования</caption>
+	
+	<tr>
+		<th>Порядковый номер теста</th>
+		<th>THE OVERLAPPING 5-PERMUTATION TEST</th>
+		<th>COUNT-THE-1's TEST on a stream of bytes</th>
+	</tr>
+	
+	{% with names=res.pvalues|filterNames2 %}
+	{% for ps in names.values %}
+		{% with n=forloop.counter %}
+		<tr><td>{{ n }}</td>
+		{% for ps in names.values %}
+			{% with j=forloop.counter %}
+			{% with i=n|sub:1 %}
+			{% with p=ps|lookup:i %}
+				{% if p|toFloat < 0.05 and j == 1 %}
+					<td style=background-color:red>{{ p }}</td>
+				{% elif p|toFloat > 0.95 and j == 2 %}
+					<td style=background-color:red>{{ p }}</td>
+				{% elif p|toFloat >= 0.05 and j == 1 %}
+					<td>{{ p }}</td>
+				{% elif p|toFloat <= 0.95 and j == 2 %}
+					<td>{{ p }}</td>
+				{% endif %}
+			{% endwith %}
+			{% endwith %}
+			{% endwith %}
+		{% endfor %}</tr>
+		{% endwith %}
+	{% endfor %}
+	{% endwith %}
+
+</table>
+
+
+<table align="center" border="1.5">
+<caption>Результаты тестирования тестом THE BITSTREAM TEST</caption>
+	<tr>
+		<th>Порядковый номер теста</td>
+		<th>p-значение</th>
+	</tr>
+	
+	{% for p in res.pvalues.THE_BITSTREAM_TEST %}
+		<tr><td>{{ forloop.counter }}</td>
+		{% if p|toFloat >= 0.95 %}
+			<td style=background-color:red>{{ p }}</td>
+		{% elif p|toFloat <= 0.95 %}
+			<td>{{ p }}</td>
+		{% endif %}
+		</tr>
+	{% endfor %}
+</table>
+
+
+
+<table align="center" border="1.5">
+<caption align="top">Результаты тестирования тестом OPSO</caption>
+	
+	<tr>
+		<th>Группы битов</th>
+		<th>p-значение</th>
+	</tr>
+	
+	<! --for p in res.pvalues.OPSO-->
+	
+	<script>
+		rows({{ res.pvalues.OPSO|safe }}, 10, true);
+	</script>
+
+</table>
+
+
+<table align="center" border="1.5">
+<caption>Результаты тестирования тестом OQSO</caption>
+	
+	<tr>
+		<th>Группы битов</th>
+		<th>p-значение</th>
+	</tr>
+	
+	<! --for p in res.pvalues.OQSO-->
+	
+	<script>
+		rows({{ res.pvalues.OQSO|safe }}, 5, true);
+	</script>
+	
+
+</table>
+
+
+<table align="center" border="1.5">
+<caption>Результаты тестирования тестом DNA</caption>
+	
+	<tr>
+		<th>Группы битов</th>
+		<th>p-значение</th>
+	</tr>
+	
+	<! --for p in res.pvalues.DNA-->
+	
+	<script>
+		rows({{ res.pvalues.DNA|safe }}, 2, true);
+	</script>
+
+</table>
+
+<table align="center" border="1.5">
+<caption>Результаты тестирования тестом COUNT THE 1's TEST for specific bytes</caption>
+	
+	<tr>
+		<th>Группы битов</th>
+		<th>p-значение</th>
+	</tr>
+	
+	<! --for p in res.pvalues.COUNT_THE_1s_TEST_for_specific_bytes-->
+	
+	<script>
+		rows({{ res.pvalues.COUNT_THE_1s_TEST_for_specific_bytes|safe }}, 8, true);
+	</script>
+
+</table>
+
+<table align="center" border="1.5">
+<caption>Результаты тестирования тестом RUNS test</caption>
+
+	<tr>
+		<th>Порядковый номер теста</th>
+		<th>runs up</th>
+		<th>runs down</th>
+	</tr>
+	<tr>
+	<td>1</td>
+	{% for p in res.pvalues.RUNS_TEST|slice:":2" %}
+		{% if p|toFloat < 0.05 %}
+			<td style=background-color:red>{{ p }}</td>
+		{% elif p|toFloat >= 0.05 %}
+			<td>{{ p }}</td>
+		{% endif %}
+	{% endfor %}
+	</tr>
+	<tr>
+	<td>2</td>
+	{% for p in res.pvalues.RUNS_TEST|slice:"2:" %}
+		{% if p|toFloat < 0.05 %}
+			<td style=background-color:red>{{ p }}</td>
+		{% elif p|toFloat >= 0.05 %}
+			<td>{{ p }}</td>
+		{% endif %}
+	{% endfor %}
+	</tr>
+</table>
+{% endblock %}
