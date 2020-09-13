@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 	'results', #new
 	'tags', #new
 	'crispy_forms', #new
+	'django-uwsgi', #new
 ]
 
 MIDDLEWARE = [
