@@ -43,7 +43,6 @@ INSTALLED_APPS = [
 	'inputData', #new
 	'results', #new
 	'tags', #new
-	'jquery', #new
 	'crispy_forms', #new
 ]
 
@@ -91,12 +90,6 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     },
-	'results':{
-		'NAME': os.path.join(BASE_DIR, 'db.djongo'),
-		'ENGINE': 'djongo',
-		'USER': 'sky_shy',
-		'PASSWORD': 'Meitsson2006',
-	}
 }
 
 
