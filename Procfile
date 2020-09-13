@@ -1,1 +1,1 @@
-web: uwsgi uwsgi.ini --log-file -
+web: uwsgi diehard.ini --log-file -
