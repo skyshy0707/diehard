@@ -1,1 +1,1 @@
-web: gunicorn diehard.wsgi --log-file -
+web: uwsgi uwsgi.ini --log-file -
