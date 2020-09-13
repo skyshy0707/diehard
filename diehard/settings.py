@@ -34,18 +34,17 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+	'django.contrib.admin',
+	'django.contrib.auth',
+	'django.contrib.contenttypes',
+	'django.contrib.sessions',
+	'django.contrib.messages',
+	'django.contrib.staticfiles',
 	'django.contrib.postgres', #new
 	'inputData', #new
 	'results', #new
 	'tags', #new
 	'crispy_forms', #new
-	'django-uwsgi', #new
 ]
 
 MIDDLEWARE = [
@@ -65,7 +64,7 @@ ROOT_URLCONF = 'diehard.urls'
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+		'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'templates'),],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -75,7 +74,6 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
-			
 			'libraries':{'lookup': 'tags.templatetags.tags'}
         },
     },

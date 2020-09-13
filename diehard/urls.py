@@ -26,7 +26,6 @@ from django.urls import path, include, re_path
 
 
 urlpatterns = [
-	path(r'^admin/uswgi', include('django_uwsgi.urls')),
 	path('admin/', admin.site.urls),
 	path('', include('inputData.urls', namespace = 'inputData')),
 	path('', include('results.urls', namespace = 'results')),
