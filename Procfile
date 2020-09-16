@@ -5,4 +5,4 @@ web: waitress-serve \
     --log-untrusted-proxy-headers \
     --clear-untrusted-proxy-headers \
     --threads ${WEB_CONCURRENCY:-4} \
-    diehard:wsgifunc
+    myapp:wsgifunc
