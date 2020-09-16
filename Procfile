@@ -1,3 +1,1 @@
-web: waitress-serve \
-    --listen "*:$PORT" \
-    diehard.wsgi:application
+web: waitress-serve --listen *:$PORT diehard.wsgi:application
