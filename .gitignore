@@ -134,4 +134,4 @@ dmypy.json
 *.sqlite3
 
 #Env-settings
-.env
+/diehard/env.py
