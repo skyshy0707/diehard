@@ -132,3 +132,6 @@ dmypy.json
 
 #Database
 *.sqlite3
+
+#Env-settings
+.env
