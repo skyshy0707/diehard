@@ -8,7 +8,7 @@ Created on Thu Jul  9 17:37:18 2020
 
 import subprocess
 import os
-from diehard.settings import BASE_DIR
+'''from diehard.settings import BASE_DIR'''
 
 def main(inpPath, outPath):
 	'''init_path = os.path.join(BASE_DIR, 'inputData')
