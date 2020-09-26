@@ -16,7 +16,7 @@ def deleteFile():
 	os.remove('hex.ascii')
 
 def moveFile(ID):
-	inp_path = os.path.join(BASE_DIR, '.heroku\\python\\t.txt')
+	inp_path = os.path.join(BASE_DIR, '.heroku\\python\\bin\\t.txt')
 	out_path = os.path.join(BASE_DIR, 'uploads\\' + str(ID))
 	shutil.move(inp_path, out_path)
 	deleteFile()
