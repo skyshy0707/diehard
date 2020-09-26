@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 from . import make10hexs_per_line
 from . import makeDir
-from ..heroku.python import makeBin, makeTest
+from ..heroku.python.bin import makeBin, makeTest
 '''from . import makeTest'''
 
 
