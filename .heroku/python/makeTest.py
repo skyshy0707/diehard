@@ -16,7 +16,7 @@ def deleteFile():
 	os.remove('hex.ascii')
 
 def moveFile(ID):
-	inp_path = os.path.join(BASE_DIR, 'inputData\\t.txt')
+	inp_path = os.path.join(BASE_DIR, '.heroku\\python\\t.txt')
 	out_path = os.path.join(BASE_DIR, 'uploads\\' + str(ID))
 	shutil.move(inp_path, out_path)
 	deleteFile()
@@ -24,8 +24,8 @@ def moveFile(ID):
 
 
 def main(inpPath, outPath):
-	init_path = os.path.join(BASE_DIR, 'inputData')
-	os.chdir(init_path)
+	'''init_path = os.path.join(BASE_DIR, 'inputData')
+	os.chdir(init_path)'''
 	p = subprocess.Popen(['DIEHARD.EXE'], stdin=subprocess.PIPE, stdout=subprocess.PIPE, text = True)
 	p.communicate(input= inpPath + '\n' + outPath + '\n' + '111111111111111')
 	

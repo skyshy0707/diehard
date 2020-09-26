@@ -8,6 +8,7 @@ from diehard.settings import BASE_DIR
 import os
 
 
+
 # Create your views here.
 
 
