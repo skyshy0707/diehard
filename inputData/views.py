@@ -8,7 +8,7 @@ from diehard.settings import BASE_DIR
 import os
 import sys
 sys.path.insert(0, BASE_DIR)
-sys.path.insert(0, os.path.join(BASE_DIR, '.heroku\\python\\bin'))
+sys.path.insert(0, os.path.join(BASE_DIR, '.heroku/python/bin'))
 '''from ...heroku.python.bin import makeBin, makeTest'''
 '''from . import makeTest'''
 import makeBin, makeTest
